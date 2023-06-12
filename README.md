@@ -36,5 +36,6 @@ a.Descripción de las herramientas utilizadas
 multiples librerias sin embargo  cambiamos el uso de la libreria "tkinter" 
 por el uso de la libreria "customtkinter" por razones de usos esteticos
 b. Guia de instalación
+descargar el archivo "calcular tiro parabolico.exe"
 c. Guia de uso (Hacer uso de imágenes o un video tutorial para su uso)
 d. Enlace a vídeo con la explicación del código desarrollado.
