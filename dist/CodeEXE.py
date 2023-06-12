@@ -6,7 +6,7 @@ import seaborn as sns
 
 main_window = ctk.CTk()                                                                                #   Asignamos las propiedades de ctk.Ctk a main_window
 main_window.title("Tiro Parabolico")                                                                            #   Ponemos nombre a la ventanita creada
-main_window.geometry("900x600")                                                                         #   Definimos la resolucion de la ventana
+main_window.geometry("900x600") #Resolucion Recomendada                                                         #   Definimos la resolucion de la ventana
 main_window_width, main_window_height = main_window.winfo_geometry()[0], main_window.winfo_geometry()[1] #   Obtenemos el alto y ancho
 main_window.resizable(False, False)
 
