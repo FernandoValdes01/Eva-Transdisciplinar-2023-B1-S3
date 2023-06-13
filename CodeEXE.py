@@ -1,10 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from matplotlib.widgets import Button
-from functools import partial
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 import customtkinter as ctk
-
+import seaborn as sns
 
 main_window = ctk.CTk()                                                                                #   Asignamos las propiedades de ctk.Ctk a main_window
 main_window.title("Tiro Parabolico")                                                                            #   Ponemos nombre a la ventanita creada
@@ -12,14 +10,14 @@ main_window.geometry("900x600")                                                 
 main_window_width, main_window_height = main_window.winfo_geometry()[0], main_window.winfo_geometry()[1] #   Obtenemos el alto y ancho
 main_window.resizable(False, False)
 
-#Variables globales
-d=[0,25,50,75,99]
-cont=0
-pelota_x= 0.0
-pelota_y= 0.0
+def selected(choice):
+    print(choice)
+
 
 def calcular_Trayectoria(velocidad, angulo):
     # Convierto el angulo a radians
+    #los pasamos aradians por que asi es mas facil
+    #trabajar con los angulos de mas adelante
     angle_rad = np.deg2rad(angulo)
 
     # Calculo el tiempo de vuelo
@@ -29,72 +27,31 @@ def calcular_Trayectoria(velocidad, angulo):
     t = np.linspace(0, tiempo_de_vuelo, num=100)
 
     # Calculo el "x" y "y" posiciones en cada  intervalo del tiempo
-    x = velocidad * np.cos(angle_rad) * t
+    x = velocidad * np.cos(angle_rad) * t 
     y = velocidad * np.sin(angle_rad) * t - 0.5 * 9.8 * t ** 2
 
     # Encuentra la altura maxima y el tiempo correspondiente
     Altura_maxima = np.max(y)
-    print(np.argmax(y))
-    
-    Altura_maxima_tiempo = t[np.argmax(y)]
-    X_en_altura_maxima = x[np.argmax(y)]
+    Altura_maximo_tiempo = t[np.argmax(y)]
 
-    return x, y, Altura_maxima, Altura_maxima_tiempo,X_en_altura_maxima,t
+    return x, y, Altura_maxima, Altura_maximo_tiempo
 
-def previo(event,pelota,x,y):
-    global d,pelota_x,pelota_y,cont
-    cont-=1
-    if cont < 0:
-        cont=4
-    pelota_x= float(x[d[cont]])
-    pelota_y= float(y[d[cont]])
-    pelota.set_offsets([pelota_x, pelota_y])
-    plt.draw()
-    return
 
-def siguiente(event,pelota,x,y):
-    global d,pelota_x,pelota_y,cont
-    cont+=1
-    if cont > 4:
-        cont=0
-    pelota_x= float(x[d[cont]])
-    pelota_y= float(y[d[cont]])
-    pelota.set_offsets([pelota_x, pelota_y])
-    plt.draw()
-    return
 
-def mostrar_Trayectoria(x, y, Altura_Maxima, Altura_maxima_tiempo, X_en_altura_maxima,t):
-    
+
+
+def mostrar_Trayectoria(x, y, Altura_Maxima, Altura_maximo_tiempo):
     fig, ax = plt.subplots()
     ax.plot(x, y)
-    plt.subplots_adjust(bottom=0.2)
-    
-    global pelota_x,pelota_y
-    pelota_x=X_en_altura_maxima
-    pelota_y=Altura_Maxima
-    
-    ax_prev = plt.axes([0.58, 0.05, 0.15, 0.07])
-    ax_next = plt.axes([0.75, 0.05, 0.15, 0.07])
-    
-    Button_prev = Button(ax_prev, 'Previo', color='green', hovercolor= 'blue')
-    Button_next = Button(ax_next, 'Siguiente', color='orange', hovercolor= 'red')
-    pelota = ax.scatter(pelota_x, pelota_y)
-    
-    partial_button_clicked = partial(previo, pelota=pelota,x=x,y=y)
-    partial_button_clicked1 = partial(siguiente, pelota=pelota,x=x,y=y)
-    
-    Button_prev.on_clicked(partial_button_clicked)
-    Button_next.on_clicked(partial_button_clicked1)
-    ax.plot(X_en_altura_maxima, Altura_Maxima, 'ro')
+    ax.plot(Altura_maximo_tiempo, Altura_Maxima)
+    ax.axhline(y=Altura_Maxima, xmin=0.0, xmax=1.0, color='r')
     ax.set_xlabel('Distancia (Metros)')
     ax.set_ylabel('Altura (Metros)')
-    ax.set_title('Demostración del proyectil')
-    
+    ax.set_title('Simulación del proyectil')
     return fig
-    
 
+#________________________________________________________________________________________________________
 
-# Crea las ventanas GUI
 graphic_frame = ctk.CTkFrame(main_window, width=643, height=480)    #Frame para el gráfico  "graphic_frame"
 graphic_frame.grid(row=0, column=1, pady=20)                        #Posicionamiento del frame para gráficos
 
@@ -112,6 +69,12 @@ angle_entry = ctk.CTkEntry(buttons_frame, width=60, height=12)                  
 angle_entry.grid(row=1, column=0, padx=2, pady=5, sticky="ne")                                                                             #Posicion de la textbox
 
 
+
+# https://customtkinter.tomschimansky.com/documentation/widgets/entry
+# https://customtkinter.tomschimansky.com/documentation/widgets/textbox
+
+
+
 b_1 = ctk.CTkSegmentedButton(buttons_frame,width=60, height=10 , values=["m/s"])                         #Segmented button, para 2 botones en 1
 b_1.grid(row=1, column=1, padx=2, pady=8, sticky="nw")                                                                               #Posicion y config del segmented button
 b_1.set("m/s")
@@ -125,14 +88,16 @@ b_2.grid(row=4, column=1, padx=2, pady=8, sticky="nw")
 b_2.set("β") 
 
 
+
 def calculofinal():
-    global angle_entry, velocity_entry,pelota_x
+    global angle_entry, velocity_entry
 
     angle = float(angle_entry.get())
     velocity = float(velocity_entry.get())
+    
     temp1 = calcular_Trayectoria(angle, velocity)
     print(temp1)
-    fig = mostrar_Trayectoria(temp1[0], temp1[1], temp1[2], temp1[3],temp1[4],temp1[5])
+    fig = mostrar_Trayectoria(temp1[0], temp1[1], temp1[2], temp1[3])
 
 
 
@@ -144,11 +109,21 @@ def calculofinal():
 b_3 = ctk.CTkButton(buttons_frame, width=60, height=8, command=calculofinal, text = 'Aceptar')
 b_3.grid(row=5, column=1, padx=2, pady=8, sticky="nw")
 
+
 def on_submit():
+    global velocity_entry, angle_entry
+   
     velocidad = float(velocity_entry.get())
     angulo= float(angle_entry.get())
 
-    x, y, Altura_maxima, Altura_maxima_tiempo,X_en_altura_maxima,t= calcular_Trayectoria(velocidad, angulo)
-    mostrar_Trayectoria(x, y, Altura_maxima, Altura_maxima_tiempo,X_en_altura_maxima,t)
-# Inicia el GUI en un bucle de eventos
+    x, y, Altura_maxima, Altura_maxima_tiempo= calcular_Trayectoria(velocidad, angulo)
+    mostrar_Trayectoria(x, y, Altura_maxima, Altura_maxima_tiempo)
+
+    
+# Generar el gráfico utilizando la función generate_plot()
+
+
+#   temp1 = calcular_Trayectoria(angle_entry.get(), velocity_entry.get())
+
+#   Loop principal de la Ventana    #
 main_window.mainloop()
