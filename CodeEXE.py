@@ -13,6 +13,11 @@ main_window.resizable(False, False)
 def selected(choice):
     print(choice)
 
+#Variables globales
+d=[0,25,50,75,99]
+cont=0
+pelota_x= 0.0
+pelota_y= 0.0
 
 def calcular_Trayectoria(velocidad, angulo):
     # Convierto el angulo a radians
@@ -30,14 +35,39 @@ def calcular_Trayectoria(velocidad, angulo):
     x = velocidad * np.cos(angle_rad) * t 
     y = velocidad * np.sin(angle_rad) * t - 0.5 * 9.8 * t ** 2
 
-    # Encuentra la altura maxima y el tiempo correspondiente
     Altura_maxima = np.max(y)
-    Altura_maximo_tiempo = t[np.argmax(y)]
+    print(np.argmax(y))
 
-    return x, y, Altura_maxima, Altura_maximo_tiempo
+    # Encuentra la altura maxima y el tiempo correspondiente
+    print(np.argmax(y))
+    
+    Altura_maxima_tiempo = t[np.argmax(y)]
+    X_en_altura_maxima = x[np.argmax(y)]
+
+    return x, y, Altura_maxima, Altura_maxima_tiempo,X_en_altura_maxima,t
 
 
+def previo(event,pelota,x,y):
+    global d,pelota_x,pelota_y,cont
+    cont-=1
+    if cont < 0:
+        cont=4
+    pelota_x= float(x[d[cont]])
+    pelota_y= float(y[d[cont]])
+    pelota.set_offsets([pelota_x, pelota_y])
+    plt.draw()
+    return
 
+def siguiente(event,pelota,x,y):
+    global d,pelota_x,pelota_y,cont
+    cont+=1
+    if cont > 4:
+        cont=0
+    pelota_x= float(x[d[cont]])
+    pelota_y= float(y[d[cont]])
+    pelota.set_offsets([pelota_x, pelota_y])
+    plt.draw()
+    return
 
 
 def mostrar_Trayectoria(x, y, Altura_Maxima, Altura_maximo_tiempo):

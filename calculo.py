@@ -41,7 +41,7 @@ def calcular_Trayectoria(velocidad, angulo):
 
     return x, y, Altura_maxima, Altura_maxima_tiempo,X_en_altura_maxima,t
 
-def previo(event,pelota,x,y):
+def previo(pelota,x,y):
     global d,pelota_x,pelota_y,cont
     cont-=1
     if cont < 0:
@@ -52,10 +52,10 @@ def previo(event,pelota,x,y):
     plt.draw()
     return
 
-def siguiente(event,pelota,x,y):
+def siguiente(pelota,x,y):
     global d,pelota_x,pelota_y,cont
     cont+=1
-    if cont > 4:
+    if cont > 5:
         cont=0
     pelota_x= float(x[d[cont]])
     pelota_y= float(y[d[cont]])
@@ -76,15 +76,13 @@ def mostrar_Trayectoria(x, y, Altura_Maxima, Altura_maxima_tiempo, X_en_altura_m
     ax_prev = plt.axes([0.58, 0.05, 0.15, 0.07])
     ax_next = plt.axes([0.75, 0.05, 0.15, 0.07])
     
-    Button_prev = Button(ax_prev, 'Previo', color='green', hovercolor= 'blue')
-    Button_next = Button(ax_next, 'Siguiente', color='orange', hovercolor= 'red')
+    buttonprevio.bind("<Button-1>",previo)
+    buttonsiguiente.bind("<Button->",previo)
     pelota = ax.scatter(pelota_x, pelota_y)
     
     partial_button_clicked = partial(previo, pelota=pelota,x=x,y=y)
     partial_button_clicked1 = partial(siguiente, pelota=pelota,x=x,y=y)
     
-    Button_prev.on_clicked(partial_button_clicked)
-    Button_next.on_clicked(partial_button_clicked1)
     ax.plot(X_en_altura_maxima, Altura_Maxima, 'ro')
     ax.set_xlabel('Distancia (Metros)')
     ax.set_ylabel('Altura (Metros)')
@@ -124,6 +122,12 @@ b_2 = ctk.CTkSegmentedButton(buttons_frame,width=60, height=10 , values=["β"])
 b_2.grid(row=4, column=1, padx=2, pady=8, sticky="nw")
 b_2.set("β") 
 
+#botones del matplotlib
+buttonprevio = ctk.CTkButton(main_window, text="Atras", command=previo)
+buttonprevio.grid(row=0, column=0, padx=10, pady=10, sticky="sew")
+
+buttonsiguiente = ctk.CTkButton(main_window, text="Siguiente", command=siguiente)
+buttonsiguiente.grid(row=1, column=0, padx=10, pady=35, sticky="sew")
 
 def calculofinal():
     global angle_entry, velocity_entry,pelota_x
