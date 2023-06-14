@@ -24,9 +24,11 @@ Y=y0+v0y*t+0.5*ay*t**2
 considerando lo que busca el tiro parabolico pueden ser muchos valores 
 pero en este caso lo que busca este codigo es mostrar la altura maxima que alcanzaria un
 objeto lanzado a una velocidad y angulo ingresados por el usuario
+la formula para resolver esto es:
+(velocidad inicial^2*sen^2 del angulo)dividido por 2*gravedad
 
-Aplicaciones 
-las aplicaciones de el tiro parabolico se puede ver
+
+aplicaciones de el tiro parabolico se puede ver
 en multiples cosas en nuestra vida diaria, desde lo mas basico que 
 por ejemplo seria un aspersor de agua automatico , el lanzamiento de una piedra
 o en casos mas rebuscados como en un mortero
@@ -38,3 +40,9 @@ por el uso de la libreria "customtkinter" por razones de usos esteticos
 b. Guia de instalación
 c. Guia de uso (Hacer uso de imágenes o un video tutorial para su uso)
 d. Enlace a vídeo con la explicación del código desarrollado.
+
+Conclusion
+En Conclusion de esta actividad pudimos rescatar multiples 
+habilidades y conocimientos con el ambito de la programacion 
+y en el lado de la fisica,sin mencionar el trabajo en equipo 
+y el mejor uso de nuestros conocimientos como informaticos.
