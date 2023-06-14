@@ -35,10 +35,18 @@ o en casos mas rebuscados como en un mortero
 
 Programacióna.
 a.Descripción de las herramientas utilizadas
-multiples librerias sin embargo  cambiamos el uso de la libreria "tkinter" 
-por el uso de la libreria "customtkinter" por razones de usos esteticos
+multiples librerias la mayoria librerias conocidas como
+-matplotlib o numpy pero tambien ocupamos otras como por ejemplo
+-customtkinter en vez de tkinter para poder tener una interfaz mucho mas
+estetica y minimalista
+-webbrowser con el fin de crear el boton de ejemplos
+todas estas librerias fueron nuestras herramientas utilizadas para este
+trabajo 
+
 b. Guia de instalación
+https://youtu.be/wfRDYWFJYUc
 c. Guia de uso (Hacer uso de imágenes o un video tutorial para su uso)
+https://youtu.be/DkvxDdDhKiQ
 d. Enlace a vídeo con la explicación del código desarrollado.
 https://www.youtube.com/watch?v=tmFcvHE1yv4
 
