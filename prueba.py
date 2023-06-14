@@ -23,7 +23,7 @@ root = tk.Tk()
 root.title("Tiro parabólico")
 
 # Crear figura de Matplotlib
-fig = Figure(figsize=(5, 4), dpi=100)
+fig = Figure(figsize=(5, 4))
 ax = fig.add_subplot(1, 1, 1)
 ax.set_xlabel('Distancia (m)')
 ax.set_ylabel('Altura (m)')
