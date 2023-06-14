@@ -40,6 +40,7 @@ por el uso de la libreria "customtkinter" por razones de usos esteticos
 b. Guia de instalación
 c. Guia de uso (Hacer uso de imágenes o un video tutorial para su uso)
 d. Enlace a vídeo con la explicación del código desarrollado.
+https://www.youtube.com/watch?v=tmFcvHE1yv4
 
 Conclusion
 En Conclusion de esta actividad pudimos rescatar multiples 
