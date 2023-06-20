@@ -16,7 +16,7 @@ main_window.resizable(False, False)
 
 #-----------------------------FUNCIONES Y CALCULOS----------------#
 
-num_parts = 10
+num_parts = 35
 
 
 #--------CALCULAMOS NUESTRA TRAYECTORIA PRINCIPA--------------------------------------#
@@ -30,10 +30,10 @@ def calcular_Trayectoria(velocidad, angulo):
     tiempo_de_vuelo = (2 * velocidad * np.sin(angle_rad)) / 9.8 #Ecuación Tiempo de vuelo
 
     # Calculo el timpo en intervalos
-    t = np.linspace(0, tiempo_de_vuelo, num=9)
+    t = np.linspace(0, tiempo_de_vuelo, num=35)
 
     # Calculo el "x" y "y" posiciones en cada  intervalo del tiempo
-    x = velocidad * np.cos(angle_rad) * t #Ecuación para la Posición
+    x = velocidad * np.cos(angle_rad) * t #Ecuación para la Posición en eje X
     y = velocidad * np.sin(angle_rad) * t - 0.5 * 9.8 * t ** 2 #Ecuación de Itinerario
 
     # Encuentra la altura maxima y el tiempo correspondiente
@@ -73,8 +73,8 @@ def next_part():
     temp1 = calcular_Trayectoria(angle, velocity)
 
     if current_part < num_parts:
-        current_part += 1
-    
+        current_part += 3
+       
     fig = mostrar_plot(temp1[0], temp1[1], temp1[2], temp1[3], current_part)
     
     canvas = FigureCanvasTkAgg(fig, master=graphic_frame)
@@ -93,7 +93,7 @@ def prev_part():
     temp1 = calcular_Trayectoria(angle, velocity)
 
     if current_part > 0:
-        current_part -= 1
+        current_part -= 3
 
     fig = mostrar_plot(temp1[0], temp1[1], temp1[2], temp1[3], current_part)
     
