@@ -31,8 +31,8 @@ en multiples cosas en nuestra vida diaria, desde lo mas basico que
 por ejemplo seria un aspersor de agua automatico , el lanzamiento de una piedra
 o en casos mas rebuscados como en un mortero
 
-## Programacióna.
-#a.Descripción de las herramientas utilizadas
+## Programación.
+# a.Descripción de las herramientas utilizadas
 multiples librerias la mayoria librerias conocidas como
 -matplotlib o numpy pero tambien ocupamos otras como por ejemplo
 -customtkinter en vez de tkinter para poder tener una interfaz mucho mas
