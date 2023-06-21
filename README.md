@@ -1,4 +1,7 @@
 # Eva-Transdisciplinar-2023-B1-S3
+en este proyecto se llevara a cabo un codigo de python que podra calcular 
+un evento fisico particular que en nuestro caso es el:
+
 
 # TIRO PARABOLICO
 
@@ -23,7 +26,7 @@ considerando lo que busca el tiro parabolico pueden ser muchos valores
 pero en este caso lo que busca este codigo es mostrar la altura maxima que alcanzaria un
 objeto lanzado a una velocidad y angulo ingresados por el usuario
 la formula para resolver esto es:
-(velocidad inicial^2*sen^2 del angulo)dividido por 2*gravedad
+velocidad * seno del angulo * tiempo - 0.5 * gravedad * tiempo ** 2
 
 
 aplicaciones de el tiro parabolico se puede ver
@@ -31,8 +34,8 @@ en multiples cosas en nuestra vida diaria, desde lo mas basico que
 por ejemplo seria un aspersor de agua automatico , el lanzamiento de una piedra
 o en casos mas rebuscados como en un mortero
 
-## Programación.
-# a.Descripción de las herramientas utilizadas
+# Programación.
+### a.Descripción de las herramientas utilizadas
 multiples librerias la mayoria librerias conocidas como
 -matplotlib o numpy pero tambien ocupamos otras como por ejemplo
 -customtkinter en vez de tkinter para poder tener una interfaz mucho mas
