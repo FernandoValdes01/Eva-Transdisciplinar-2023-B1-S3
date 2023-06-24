@@ -46,21 +46,25 @@ def calcular_Trayectoria(velocidad, angulo):
 
 
 #--------------------MOSTRAMOS GRAFICO CON MATPLOTLIB-------------------------------#
-def mostrar_plot(x, y, Altura_Maxima, Altura_maximo_tiempo,part):
-    fig, ax= plt.subplots()
-    #ax.plot(x, y)
+
+def mostrar_plot(x, y, Altura_Maxima, Altura_maximo_tiempo, part):
+    fig, ax = plt.subplots()
+
     ax.plot(Altura_maximo_tiempo, Altura_Maxima)
     ax.axhline(y=Altura_Maxima, xmin=0.0, xmax=1.0, color='r')
     ax.set_xlabel('Distancia (Metros(MRUA))')
     ax.set_ylabel('Altura (Metros(MRU))')
     ax.set_title(f"Simulación tiro parabólico")
     ax.text(Altura_maximo_tiempo, Altura_Maxima, f'Altura: {Altura_Maxima:.2f} metros',
-    verticalalignment='bottom', horizontalalignment='left', color='r', fontsize=9)
+            verticalalignment='bottom', horizontalalignment='left', color='r', fontsize=9)
 
-    line, = ax.plot(x, y, 'b')
-    line.set_data(x[:part+1], y[:part+1])
+    ball = plt.Circle((x[part], y[part]), 0.1, color='red')
+    ax.add_patch(ball)
 
-    return fig 
+    ax.plot(x, y, 'b')
+    ax.plot(x[:part+1], y[:part+1], 'b')
+
+    return fig
 
 #-------DIBUJAR PARTES DEL GRAFICO------------------#
 current_part = 0
@@ -168,7 +172,7 @@ txt_2_label.grid(row=2, column=0, columnspan=2, pady=15, sticky="we")
 
 
 #---------------------------------CREACION DEL BOTON=GRAFICAR----------------------------------------------#
-b_3 = ctk.CTkButton(buttons_frame, width=60, height=8, command=calculofinal, text = 'Graficar')
+b_3 = ctk.CTkButton(buttons_frame, width=60, height=8, command=calculofinal, text = 'Simular')
 b_3.grid(row=5, column=0,columnspan=2,padx=0, pady=0, sticky="we")
 
 
