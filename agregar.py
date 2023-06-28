@@ -13,12 +13,10 @@ main_window.title("Tiro Parabolico")                                            
 main_window.geometry("900x600")                                                                         #   Definimos la resolucion de la ventana
 main_window_width, main_window_height = main_window.winfo_geometry()[0], main_window.winfo_geometry()[1] #   Obtenemos el alto y ancho
 main_window.resizable(False, False)
-
-
 #-----------------------------FUNCIONES Y CALCULOS----------------#
 
-num_parts = 35
-toolbar = None
+num_parts = 35  #nombre de variable que nos servira +adelante
+toolbar = None   
 
 
 #--------CALCULAMOS NUESTRA TRAYECTORIA PRINCIPA--------------------------------------#
@@ -46,25 +44,22 @@ def calcular_Trayectoria(velocidad, angulo):
 
 
 #--------------------MOSTRAMOS GRAFICO CON MATPLOTLIB-------------------------------#
-
-def mostrar_plot(x, y, Altura_Maxima, Altura_maximo_tiempo, part):
-    fig, ax = plt.subplots()
-
+def mostrar_plot(x, y, Altura_Maxima, Altura_maximo_tiempo,part):
+    fig, ax= plt.subplots()
+    #ax.plot(x, y)
     ax.plot(Altura_maximo_tiempo, Altura_Maxima)
     ax.axhline(y=Altura_Maxima, xmin=0.0, xmax=1.0, color='r')
     ax.set_xlabel('Distancia (Metros(MRUA))')
     ax.set_ylabel('Altura (Metros(MRU))')
     ax.set_title(f"Simulación tiro parabólico")
     ax.text(Altura_maximo_tiempo, Altura_Maxima, f'Altura: {Altura_Maxima:.2f} metros',
-            verticalalignment='bottom', horizontalalignment='left', color='r', fontsize=9)
+    verticalalignment='bottom', horizontalalignment='left', color='r', fontsize=9)
+   
 
-    ball = plt.Circle((x[part], y[part]), 0.1, color='red')
-    ax.add_patch(ball)
+    line, = ax.plot(x, y, 'b')
+    line.set_data(x[:part+1], y[:part+1])
 
-    ax.plot(x, y, 'b')
-    ax.plot(x[:part+1], y[:part+1], 'b')
-
-    return fig
+    return fig 
 
 #-------DIBUJAR PARTES DEL GRAFICO------------------#
 current_part = 0
@@ -115,8 +110,6 @@ def prev_part():
     toolbar.update()
     toolbar.pack_forget()      
     return 
-
-
 
 #-----SE REALIZA CALCULO FINAL PARA EL GRAFICO-----------#
 def calculofinal():
