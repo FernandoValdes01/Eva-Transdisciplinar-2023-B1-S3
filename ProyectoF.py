@@ -45,7 +45,7 @@ def calcular_Trayectoria(velocidad, angulo):
     dato_total.grid(row=2, column=3, columnspan=2, pady=15, padx = 20, sticky="w")
     dato_total.configure(text=f'Tiempo Total = {tiempo_total}')
 
-    discriminante = b**2 - 4 *a * c #Discriminante utilizado para saber si existe solucion
+    discriminante = b**2 - 4 *a * c #Discriminante utilizado para saber si existe solucion/ Sacado de la formula general de la cuadratica
     
     if posicion_y < 0:
         print("Error de entrada en posicion y, el valor debe ser mayor o igual a 0")
