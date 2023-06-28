@@ -100,7 +100,7 @@ a nosotros nos convenia utilizar customtkinter pero para otras partes ocupamos t
 ### B) Guia de instalación
 https://youtu.be/Zt1lyVyTjpE
 ### C) Guia de uso (Hacer uso de imágenes o un video tutorial para su uso)
-https://youtu.be/DkvxDdDhKiQ
+https://youtu.be/YQdJ7eF0RaU
 ### D) Enlace a vídeo con la explicación del código desarrollado.
 https://youtu.be/19F9RRwCaPk
 
