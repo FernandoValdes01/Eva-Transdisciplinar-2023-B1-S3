@@ -70,7 +70,7 @@ Python es nuestro lenguaje que ocuparemos en nuestro proyecto
 
 ![pngwing com (4)](https://github.com/FernandoValdes01/Eva-Transdisciplinar-2023-B1-S3/assets/132627914/ac4668a0-71ce-4d93-b3f0-b09f2ab71d27)
 
-### en temas de librerias ocuparemos 4 librerias.
+### en temas de librerias ocuparemos 5 librerias.
 
 1.[Matplotlib](https://github.com/matplotlib/matplotlib)
 matplotlib es una libreria externa que nos ayudara en multiples tareas dentro de nuestro codigo por ejemplo la generacion de graficos
@@ -90,6 +90,11 @@ Numpy es una libreria usada para hacer calculos mas matematicos de todo tipo
 
 4-[webbrowser](https://docs.python.org/es/3/library/webbrowser.html)
 webbrowser es una libreria de python que nos permitira la busqueda por internet mediante el codigo
+
+5-[Tkinter](https://docs.python.org/es/3/library/tkinter.html)
+Tkinter es una de las herramientas para empezar en lo que es las interfazes graficas
+a nosotros nos convenia utilizar customtkinter pero para otras partes ocupamos tkinter 
+
 
 
 ### B) Guia de instalación
