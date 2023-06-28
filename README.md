@@ -102,7 +102,7 @@ https://youtu.be/wfRDYWFJYUc
 ### C) Guia de uso (Hacer uso de imágenes o un video tutorial para su uso)
 https://youtu.be/DkvxDdDhKiQ
 ### D) Enlace a vídeo con la explicación del código desarrollado.
-https://www.youtube.com/watch?v=tmFcvHE1yv4
+https://youtu.be/19F9RRwCaPk
 
 ## Conclusion
 En conclusion aprendimos lo que es tiro parabolico ,su historia  y como se resuelve 
