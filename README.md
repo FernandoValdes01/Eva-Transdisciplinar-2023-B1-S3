@@ -23,20 +23,30 @@ Ambos movimientos se superponen simultáneamente y dan origen al movimiento para
 
 ## ¿Que formulas utiliza el tiro parabolico?
 El Tiro Parabolico utiliza multiples formulas dependiendo lo que uno necesita
-si uno necesita la velocidad en X se ocupa la siguiente formula:
-velocidad en X = velocidad inicial multiplicado por el coseno del angulo
+si uno necesita la el tiempo maximo del objeto  se ocupa la formula:
 
-en otro caso si uno necesita la velocidad inicial en el eje Y se ocupa la siguiente formula:
+ ### T=2v0senθ/g
 
-velocidad inicial en Y= veloocidad inicial por el seno del angulo 
+ para encontrar la altura maxima se ocupa la siguiente formula:
+
+ ### H= (v°)² /2g
+
+ para encontrar  la velocidad en X se ocupa la siguiente formula:
+
+ ### v0x=v0·cos angulo
+
+ para encontrar la velocidad en y se ocupa la siguiente formula:
+ ### v0y = v0· sen ángulo
+
+ esta es una de las tantas formulas que se pueden utilizar para el tiro parabolico
+ como se puede ver en nuestro codigo ocupamos variaciones de estas mismas para mayor eficiencia a la hora de programarlo
 
 
 ## ¿Como se resuelve?
 considerando lo que busca el tiro parabolico pueden ser muchos valores 
 pero en este caso lo que busca este codigo es mostrar la altura maxima que alcanzaria un
 objeto lanzado a una velocidad y angulo ingresados por el usuario
-la formula para resolver esto es:
-velocidad * seno del angulo * tiempo - 0.5 * gravedad * tiempo ** 2
+la formula para resolverlo es remplazando los valores del con la formula o el valor que deseemos calcular
 
 
 ## Aplicaciones 
@@ -60,7 +70,7 @@ Python es nuestro lenguaje que ocuparemos en nuestro proyecto
 
 ![pngwing com (4)](https://github.com/FernandoValdes01/Eva-Transdisciplinar-2023-B1-S3/assets/132627914/ac4668a0-71ce-4d93-b3f0-b09f2ab71d27)
 
-### en temas de librerias ocuparemos 5 librerias.
+### en temas de librerias ocuparemos 4 librerias.
 
 1.[Matplotlib](https://github.com/matplotlib/matplotlib)
 matplotlib es una libreria externa que nos ayudara en multiples tareas dentro de nuestro codigo por ejemplo la generacion de graficos
