@@ -6,6 +6,9 @@ un evento fisico particular que en nuestro caso es el:
 # TIRO PARABOLICO
 
 ## ¿Que es un tiro parabolico?
+El movimiento parabólico o tiro oblicuo resulta de la composición de un movimiento rectilíneo uniforme (mru horizontal) y un movimiento rectilíneo uniformemente acelerado de lanzamiento hacia arriba o hacia abajo (mrua vertical).
+
+## Historia del Tiro parabolico
 En lo concerniente al movimiento de los proyectiles cerca de la superficie terrestre, Aristóteles (384 a.c. en Estagira, Macedonia – 322 a.c.en Calcis Eubea, Grecia)
 sostenía que “una piedra permanece en reposo o se mueve en línea recta hacia el centro de la tierra a menos que se vea sometida a una fuerza exterior”.
 
@@ -23,6 +26,7 @@ Ambos movimientos se superponen simultáneamente y dan origen al movimiento para
 
 ## ¿Que formulas utiliza el tiro parabolico?
 El Tiro Parabolico utiliza multiples formulas dependiendo lo que uno necesita
+
 si uno necesita la el tiempo maximo del objeto  se ocupa la formula:
 
  ### T=2v0senθ/g
