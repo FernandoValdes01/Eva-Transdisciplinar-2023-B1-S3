@@ -14,19 +14,19 @@ main_window.geometry("1100x600")                                                
 main_window_width, main_window_height = main_window.winfo_geometry()[0], main_window.winfo_geometry()[1] #   Obtenemos el alto y ancho
 main_window.resizable(False, False)
 ctk.deactivate_automatic_dpi_awareness() #Desactiva el autoescalado de Windows/MacOS/Linux para mejor funcionamiento
-
+ctk.set_appearance_mode('dark')
 #-----------------------------FUNCIONES Y CALCULOS----------------#
 
 num_parts = 35
 max_height_line = 15
-
+restart_part = 0
 
 #--------CALCULAMOS NUESTRA TRAYECTORIA PRINCIPA--------------------------------------#
 def calcular_Trayectoria(velocidad, angulo):
     # Convierto el angulo a radians
     #los pasamos aradians por que asi es mas facil
     #trabajar con los angulos de mas adelante
-    global x_entry, y_entry,g_entry
+    global x_entry, y_entry,g_entry, aft
     g = float(g_entry.get())
     posicion_x = float(x_entry.get())
     posicion_y = float(y_entry.get())
@@ -45,11 +45,11 @@ def calcular_Trayectoria(velocidad, angulo):
     dato_total.grid(row=2, column=3, columnspan=2, pady=15, padx = 20, sticky="w")
     dato_total.configure(text=f'Tiempo Total = {tiempo_total}')
 
-    discriminante = b**2 - 4 *a * c #Discriminante utilizado para saber si existe solucion/ Sacado de la formula general de la cuadratica
-    
+    discriminante = b**2 - 4 *a * c #Discriminante utilizado para saber si existe solucion
     if posicion_y < 0:
         print("Error de entrada en posicion y, el valor debe ser mayor o igual a 0")
         Mg.showinfo('Advertencia','Error de entrada en la posicion Y, el valor debe ser mayor o igual a 0')
+    
     if g<=0:
         print("Error de entrada en Gravedad, el valor debe ser positivo")
         Mg.showinfo('Advertencia','Error de entrada en Gravedad, el valor debe ser mayor a 0')
@@ -80,8 +80,8 @@ def mostrar_plot(x, y, Altura_Maxima, Altura_maximo_tiempo, part):
     
     fig, ax= plt.subplots()
     ax.plot(Altura_maximo_tiempo, Altura_Maxima)
-    ax.set_xlabel('Distancia (Metros(MRUA))')
-    ax.set_ylabel('Altura (Metros(MRU))')
+    ax.set_xlabel('Distancia en Metros(MRU)')
+    ax.set_ylabel('Altura en Metros(MRUA)')
     ax.set_title(f"Simulación tiro parabólico")
     
 
@@ -101,6 +101,33 @@ def mostrar_plot(x, y, Altura_Maxima, Altura_maximo_tiempo, part):
   
 
     return fig 
+
+def restart_plot():
+    
+    global buttonsave, buttonrestart, btn_next, btn_prev
+
+    fig, ax= plt.subplots()
+    ax.plot()
+   
+    ax.set_xlabel('Distancia en Metros(MRU)')
+    ax.set_ylabel('Altura en Metros(MRUA)')
+    ax.set_title(f"Simulación tiro parabólico")     
+     
+    canvas = FigureCanvasTkAgg(fig, master=graphic_frame)
+    canvas.get_tk_widget().place(x = 2, y = 2)
+    canvas.draw() 
+
+    toolbar = NavigationToolbar2Tk(canvas, graphic_frame)
+    toolbar.update()
+    toolbar.pack_forget()
+
+    
+    buttonsave.configure(state= ctk.DISABLED)
+    buttonrestart.configure(state= ctk.DISABLED)
+    btn_next.configure(state= ctk.DISABLED)
+    btn_prev.configure(state= ctk.DISABLED)
+
+    return
 
 #-------DIBUJAR PARTES DEL GRAFICO------------------#
 current_part = 0
@@ -156,7 +183,8 @@ def prev_part():
 
 #-----SE REALIZA CALCULO FINAL PARA EL GRAFICO-----------#
 def calculofinal():
-    global angle_entry, velocity_entry, current_part, canvas
+    
+    global angle_entry, velocity_entry, buttonsave, buttonrestart, btn_next, btn_prev, current_part, canvas, toolbar
 
     angle = float(angle_entry.get())
     velocity = float(velocity_entry.get())
@@ -167,6 +195,16 @@ def calculofinal():
     canvas = FigureCanvasTkAgg(fig, master=graphic_frame)
     canvas.get_tk_widget().place(x = 2, y = 2)
     canvas.draw()
+
+    toolbar = NavigationToolbar2Tk(canvas, graphic_frame)
+    toolbar.update()
+    toolbar.pack_forget()
+
+    buttonsave.configure(state= ctk.NORMAL)
+    buttonrestart.configure(state= ctk.NORMAL)
+    btn_next.configure(state= ctk.NORMAL)
+    btn_prev.configure(state= ctk.NORMAL)
+
     return
 
 #---------FUNCION DEL VIDEO DE YOUTUBE--------------------------------------------------#
@@ -179,12 +217,13 @@ def reproducir_video():
 def Guardar():
     toolbar.save_figure()
 
+
 #---------------------------------GRAFICOS;BOTONES;ENTRADAS------------------------------------------------#
 
 #------------------------------------LUGAR DEL GRAFICO-----------------------------------------------------#
+
 graphic_frame = ctk.CTkFrame(main_window, width=643, height=480)    #Frame para el gráfico  "graphic_frame"
 graphic_frame.grid(row=0, column=1, pady=20)
-
 
 #---------------------------------LUGAR DE ENTRADA DE DATOS------------------------------------------------#
 buttons_frame = ctk.CTkFrame(main_window, width=800, height=450)    #Frame para Botones/textboxes   "buttons_frame"
@@ -192,8 +231,13 @@ buttons_frame.grid(row=0, column=0, padx=20, pady=10)
 
 #---------------------------------LUGAR DE BOTON DE GUARDADO------------------------------------------------#
 
-Botonesfuncionales= ctk.CTkFrame(main_window, width=740, height=200)
-Botonesfuncionales.grid(row=1, column=0, padx=30, pady=20)
+Button_save= ctk.CTkFrame(main_window, width=740, height=200)
+Button_save.grid(row=1, column=0, padx=30, pady=20)
+
+#---------------------------------LUGAR DE BOTON DE REINICIO------------------------------------------------#
+
+Button_restart= ctk.CTkFrame(main_window, width=740, height=200)
+Button_restart.grid(row=1, column=3, padx=30, pady=20)
 
 #---------------------------------LUGAR DE INFORMACION/DATOS------------------------------------------------#
 
@@ -237,26 +281,34 @@ g_label.grid(row=8, column=0, columnspan=2, pady=15, sticky="we")               
 g_entry = ctk.CTkEntry(buttons_frame, width=50, height=20)
 g_entry.grid(row=9, column=0,columnspan=2, padx=5, pady=5, sticky="ew")
 
-#---------------------------------CREACION DEL BOTON=SIMULAR----------------------------------------------#
+#---------------------------------CREACION DEL BOTON=GRAFICAR----------------------------------------------#
 b_3 = ctk.CTkButton(buttons_frame, width=60, height=8, command=calculofinal, text = 'Simular')
 b_3.grid(row=10, column=0,columnspan=2,padx=0, pady=0, sticky="we")
 
 
 #---------------------------------CREACION DE LOS BOTONES A/S----------------------------------------------#
-btn_prev = ctk.CTkButton(main_window, text="Anterior", command=prev_part)
+btn_prev = ctk.CTkButton(main_window, text="Retroceder", state=ctk.DISABLED, command=prev_part)
 btn_prev.grid(row = 1, column = 1, padx = 50, columnspan=2, sticky='w')
-btn_next = ctk.CTkButton(main_window, text="Siguiente", command=next_part)
+btn_next = ctk.CTkButton(main_window, text="Continuar", state=ctk.DISABLED, command=next_part)
 btn_next.grid(row = 1, column = 1, padx = 40, columnspan=2, sticky='e' )
 
 #---------------------------------CREACION DEL BOTON GUARDAR----------------------------------------------#
 
-buttonsave = ctk.CTkButton(Botonesfuncionales, text="Guardar", command=Guardar)
+buttonsave = ctk.CTkButton(Button_save, text="Guardar", state=ctk.DISABLED, command=Guardar)
 buttonsave.grid(column=3,row=1, padx=0,pady=0, sticky='senw')
+
+#---------------------------------CREACION DEL BOTON REINICIAR------------------------------------------------#
+
+buttonrestart = ctk.CTkButton(Button_restart, text="Reiniciar", state=ctk.DISABLED, command=restart_plot)
+buttonrestart.grid(column=1,row=1, padx=0,pady=0, sticky='senw')
 
 #---------------------------------CREACION DEL BOTON "EJEMPLO"----------------------------------------------#
 yt = ctk.CTkButton(main_window, text="Ejemplo", command=reproducir_video)
 yt.grid(row = 1, column = 1, padx = 25, columnspan=2)
 
+if angle_entry is str:
+    Mg.showinfo('Adventencia', 'Ingrese un valor numerico')
+
+
 # Ejecutar la interfaz
 main_window.mainloop()
-
