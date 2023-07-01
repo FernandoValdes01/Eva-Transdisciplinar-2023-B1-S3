@@ -306,9 +306,6 @@ buttonrestart.grid(column=1,row=1, padx=0,pady=0, sticky='senw')
 yt = ctk.CTkButton(main_window, text="Ejemplo", command=reproducir_video)
 yt.grid(row = 1, column = 1, padx = 25, columnspan=2)
 
-if angle_entry is str:
-    Mg.showinfo('Adventencia', 'Ingrese un valor numerico')
-
 
 # Ejecutar la interfaz
 main_window.mainloop()
