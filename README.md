@@ -108,7 +108,7 @@ https://youtu.be/YQdJ7eF0RaU
 ### D) Enlace a vídeo con la explicación del código desarrollado.
 https://youtu.be/19F9RRwCaPk
 ### E) Explicación de Fenómeno
-https://youtu.be/Gq7AU8jeHpQ
+https://youtu.be/SjoqdKKH-mw
 
 ## Conclusion
 En conclusion aprendimos lo que es tiro parabolico ,su historia  y como se resuelve 
