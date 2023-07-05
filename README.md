@@ -8,7 +8,7 @@ un evento fisico particular que en nuestro caso es el:
 ## ¿Que es un tiro parabolico?
 El movimiento parabólico o tiro oblicuo resulta de la composición de un movimiento rectilíneo uniforme (mru horizontal) y un movimiento rectilíneo uniformemente acelerado de lanzamiento hacia arriba o hacia abajo (mrua vertical).
 
-### Explicacion del Fenomeno
+### Explicacion del Fenomeno Fisico
 
 https://youtu.be/SjoqdKKH-mw
 
