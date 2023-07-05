@@ -101,13 +101,15 @@ a nosotros nos convenia utilizar customtkinter pero para otras partes ocupamos t
 
 
 
-### B) Guia de instalación
-https://youtu.be/Zt1lyVyTjpE
-### C) Guia de uso (Hacer uso de imágenes o un video tutorial para su uso)
-https://youtu.be/YQdJ7eF0RaU
-### D) Enlace a vídeo con la explicación del código desarrollado.
-https://youtu.be/19F9RRwCaPk
-### E) Explicación de Fenómeno
+### B) Guia de instalación y Guia de Uso
+
+ https://youtu.be/Ce0ZQ_0Nwns
+
+### C) Enlace a vídeo con la explicación del código desarrollado.
+
+https://youtu.be/rsQZqTNkxms
+
+### D) Explicación de Fenómeno
 https://youtu.be/SjoqdKKH-mw
 
 ## Conclusion
