@@ -8,6 +8,10 @@ un evento fisico particular que en nuestro caso es el:
 ## ¿Que es un tiro parabolico?
 El movimiento parabólico o tiro oblicuo resulta de la composición de un movimiento rectilíneo uniforme (mru horizontal) y un movimiento rectilíneo uniformemente acelerado de lanzamiento hacia arriba o hacia abajo (mrua vertical).
 
+### Explicacion del Fenomeno
+
+https://youtu.be/SjoqdKKH-mw
+
 ## Historia del Tiro parabolico
 En lo concerniente al movimiento de los proyectiles cerca de la superficie terrestre, Aristóteles (384 a.c. en Estagira, Macedonia – 322 a.c.en Calcis Eubea, Grecia)
 sostenía que “una piedra permanece en reposo o se mueve en línea recta hacia el centro de la tierra a menos que se vea sometida a una fuerza exterior”.
@@ -24,27 +28,29 @@ Ambos movimientos se superponen simultáneamente y dan origen al movimiento para
 ![Movimiento-parabólico](https://github.com/FernandoValdes01/Eva-Transdisciplinar-2023-B1-S3/assets/132627914/143a00ee-4a66-45d1-b662-123917c06547)
 
 
-## ¿Que formulas utiliza el tiro parabolico?
-El Tiro Parabolico utiliza multiples formulas dependiendo lo que uno necesita
+## ¿Que Modelamientos Matematicos utiliza el tiro parabolico?
+El Tiro Parabolico utiliza multiples Modelamientos matematicos dependiendo lo que uno necesita
 
-si uno necesita la el tiempo maximo del objeto  se ocupa la formula:
+si uno necesita la el tiempo maximo del objeto  se ocupa el siguiente modelamiento:
 
  ### T=2v0senθ/g
 
- para encontrar la altura maxima se ocupa la siguiente formula:
+ para encontrar la altura maxima se ocupa  el siguiente modelamiento:
 
  ### H= (v°)² /2g
 
- para encontrar  la velocidad en X se ocupa la siguiente formula:
+ para encontrar  la velocidad en X se ocupa el siguiente modelamiento:
 
  ### v0x=v0·cos angulo
 
- para encontrar la velocidad en y se ocupa la siguiente formula:
+ para encontrar la velocidad en y se ocupa el siguiente modelamiento:
  ### v0y = v0· sen ángulo
 
- esta es una de las tantas formulas que se pueden utilizar para el tiro parabolico
+ esta es uno de los tantos modelamientos matematicos  que se pueden utilizar para el tiro parabolico
  como se puede ver en nuestro codigo ocupamos variaciones de estas mismas para mayor eficiencia a la hora de programarlo
+ por ejemplo ocupamos funciones de nuestras librerias para encontrar los valores que nosotros deseamos 
 
+ 
 
 ## ¿Como se resuelve?
 considerando lo que busca el tiro parabolico pueden ser muchos valores 
@@ -54,7 +60,9 @@ la formula para resolverlo es remplazando los valores del con la formula o el va
 
 
 ## Aplicaciones 
-en las siguientes imagenes veremos algunos de los ejemplos o aplicaciones del tiro parabolico
+Aunque no siempre lo percibamos, el tiro parabólico está presente en varias situaciones cotidianas. Por ejemplo, al lanzar un objeto en el aire, como una pelota, una piedra o un frisbee, su trayectoria seguirá una forma parabólica hasta que llegue al suelo.
+
+aqui otros ejemplos del tiro parabolico
 ### el lanzamiento de un balon de basketball
 [<img src="https://transferencia.tec.mx/wp-content/uploads/2022/05/Tiro-parabólico.png" style="width: 380px;">](https://numpy.org)
 
@@ -74,7 +82,7 @@ Python es nuestro lenguaje que ocuparemos en nuestro proyecto
 
 ![pngwing com (4)](https://github.com/FernandoValdes01/Eva-Transdisciplinar-2023-B1-S3/assets/132627914/ac4668a0-71ce-4d93-b3f0-b09f2ab71d27)
 
-### en temas de librerias ocuparemos 5 librerias.
+### En temas de librerias ocuparemos 5 librerias.
 
 1.[Matplotlib](https://github.com/matplotlib/matplotlib)
 matplotlib es una libreria externa que nos ayudara en multiples tareas dentro de nuestro codigo por ejemplo la generacion de graficos
@@ -101,16 +109,15 @@ a nosotros nos convenia utilizar customtkinter pero para otras partes ocupamos t
 
 
 
-### B) Guia de instalación y Guia de Uso
+### A) Guia de instalación y Guia de Uso
 
  https://youtu.be/Ce0ZQ_0Nwns
 
-### C) Enlace a vídeo con la explicación del código desarrollado.
+### B) Enlace a vídeo con la explicación del código desarrollado.
 
 https://youtu.be/rsQZqTNkxms
 
-### D) Explicación de Fenómeno
-https://youtu.be/SjoqdKKH-mw
+
 
 ## Conclusion
 Para concluir este proyecto, hemos logrado representar el fenómeno físico asignado que en nuestro caso fue el tiro parabolico explicando su naturaleza y más. Utilizando herramientas de programación, creamos un simulador de este mismo fenomeno fisico que da como resultado  los datos normalmente mas requeridos para estos fenomenos como la altura maxima del objeto, el tiempo que tarda en caer, y el tiempo que tarda en llegar a su altura maxima 
