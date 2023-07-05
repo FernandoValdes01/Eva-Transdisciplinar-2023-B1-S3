@@ -113,6 +113,6 @@ https://youtu.be/rsQZqTNkxms
 https://youtu.be/SjoqdKKH-mw
 
 ## Conclusion
-En conclusion aprendimos lo que es tiro parabolico ,su historia  y como se resuelve 
-tambiem vimos en temas  de programacion nuestras herramientas utilizadas y como las utilizamos
-este proyecto nos ayudo a reforzar nuestras  habilidades de programacion y conocimientos de fisica
+Para concluir este proyecto, hemos logrado representar el fenómeno físico asignado que en nuestro caso fue el tiro parabolico explicando su naturaleza y más. Utilizando herramientas de programación, creamos un simulador de este mismo fenomeno fisico que da como resultado  los datos normalmente mas requeridos para estos fenomenos como la altura maxima del objeto, el tiempo que tarda en caer, y el tiempo que tarda en llegar a su altura maxima 
+
+este trabajo nos permitio sacar lo mejor de cada uno en nuestros ambitos tanto de programacion como en fisica con un fuerte trabajo en equipo  de parte de cada integrante del equipo con cada uno aportando su parte sin duda una gran experiencia y un proyecto a compartir 
